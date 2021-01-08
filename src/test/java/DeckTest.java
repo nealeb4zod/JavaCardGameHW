@@ -1,8 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class DeckTest {
 
@@ -22,11 +21,31 @@ public class DeckTest {
 
     @Test
     public void checkDeckForCard(){
-        assertTrue(deck.getCardFromDeck(queenOfClubs));
+        assertTrue(deck.isCardInDeck(queenOfClubs));
+    }
+
+    @Test
+    public void getCardAtIndex(){
+        assertEquals(queenOfClubs, deck.getCardAtIndex(37));
     }
 
     @Test
     public void checkDeckIsShuffled(){
+        deck.shuffle();
+        assertNotEquals(queenOfClubs, deck.getCardAtIndex(37));
+    }
 
+    @Test
+    public void checkDealReturnsCardAtIndexZero(){
+        deck.shuffle();
+        Card cardAtIndexZero = deck.getCardAtIndex(0);
+        assertEquals(cardAtIndexZero, deck.deal());
+    }
+
+    @Test
+    public void checkDealRemovesCardFromDeck(){
+        deck.shuffle();
+        Card dealtCard = deck.deal();
+        assertFalse(deck.isCardInDeck(dealtCard));
     }
 }

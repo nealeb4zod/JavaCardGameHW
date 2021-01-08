@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
 
@@ -18,11 +19,23 @@ public class Deck {
     public int getDeckSize(){
         return createdDeck.size();
     }
-
-
-    public boolean getCardFromDeck(Card card) {
+    
+    public boolean isCardInDeck(Card card) {
         return createdDeck.contains(card);
     }
+    
+    public Card getCardAtIndex(int index) {
+        return createdDeck.get(index);
+    }
 
+    public ArrayList<Card> shuffle() {
+        Collections.shuffle(createdDeck);
+        return createdDeck;
+    }
 
+    public Card deal() {
+        Card dealtCard = createdDeck.get(0);
+        createdDeck.remove(dealtCard);
+        return dealtCard;
+    }
 }
