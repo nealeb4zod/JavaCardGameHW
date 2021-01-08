@@ -1,13 +1,15 @@
+import jdk.nashorn.api.scripting.ScriptObjectMirror;
+
 import java.util.ArrayList;
 
 public class Player {
 
+
     private String name;
-    private ArrayList<Card> hand;
+    private Card hand;
 
     public Player(String name){
         this.name = name;
-        this.hand = new ArrayList<Card>();
     }
 
     public String getName() {
@@ -15,10 +17,10 @@ public class Player {
     }
 
     public void addCardToHand(Card card) {
-        hand.add(card);
+        hand = card;
     }
 
-    public int getNoOfCardsInHand(){
-        return hand.size();
+    public Card getHand() {
+        return hand;
     }
 }

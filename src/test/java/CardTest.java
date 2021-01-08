@@ -27,6 +27,11 @@ public class CardTest {
 
     @Test
     public void queenHasValueOfTen(){
-        assertEquals(12, card.getValueFromEnum());
+        assertEquals(12, card.getRankValueFromEnum());
+    }
+
+    @Test
+    public void heartsHasRankOfThree(){
+        assertEquals(3, card.getSuitRankFromEnum());
     }
 }

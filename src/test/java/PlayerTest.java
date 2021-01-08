@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class PlayerTest {
 
@@ -23,13 +24,13 @@ public class PlayerTest {
 
     @Test
     public void checkPlayerHandIsEmptyAtStart(){
-        assertEquals(0, player.getNoOfCardsInHand());
+        assertNull(player.getHand());
     }
 
     @Test
     public void checkCanAddCardToHand(){
         player.addCardToHand(queenOfClubs);
-        assertEquals(1, player.getNoOfCardsInHand());
+        assertEquals(queenOfClubs, player.getHand());
     }
 
 }

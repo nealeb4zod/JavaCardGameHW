@@ -18,8 +18,12 @@ public class Card {
         return rank;
     }
 
-    public int getValueFromEnum() {
+    public int getRankValueFromEnum() {
         return this.rank.getValue();
+    }
+
+    public int getSuitRankFromEnum() {
+        return this.suit.getRank();
     }
 
     @Override
