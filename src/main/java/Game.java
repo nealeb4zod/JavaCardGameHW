@@ -37,4 +37,14 @@ public class Game {
         }
         return winningPlayer;
     }
+
+    public Player playGame(Deck deck) {
+        if (getNoOfPlayers() > 52){
+            System.out.println("Too many players");
+        }
+        for (Player player: players){
+            dealCardToPlayer(player,deck);
+        }
+        return getWinner();
+    }
 }

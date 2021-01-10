@@ -70,4 +70,14 @@ public class GameTest {
         game.addPlayerToGame(player4);
         assertEquals(player1, game.getWinner());
     }
+
+    @Test
+    public void canPlayGame(){
+        game.addPlayerToGame(player1);
+        game.addPlayerToGame(player2);
+        game.addPlayerToGame(player3);
+        game.addPlayerToGame(player4);
+        // If we don't shuffle the deck, player4 always has the highest card.
+        assertEquals(player4, game.playGame(deck));
+    }
 }
