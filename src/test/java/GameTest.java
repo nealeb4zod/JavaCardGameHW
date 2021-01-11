@@ -68,7 +68,7 @@ public class GameTest {
         game.addPlayerToGame(player2);
         game.addPlayerToGame(player3);
         game.addPlayerToGame(player4);
-        assertEquals(player1, game.getWinner());
+        assertEquals(player3, game.getWinner());
     }
 
     @Test
@@ -93,13 +93,13 @@ public class GameTest {
     }
     @Test
     public void useAllCards() {
-        for (int i = 0; i < 51; i++) {
+        for (int i = 0; i < 52; i++) {
             Player player;
             String playerName = "player" + i;
             player = new Player(playerName);
             game.addPlayerToGame(player);
         }
-        // In an un-shuffled deck, player 38 always wins (Has king(highest rank) of clubs(highest suit))
-        assertEquals("player38", game.playGame(deck));
+        // In an un-shuffled deck, player 51 always wins (Has king(highest rank) of Spades(highest suit))
+        assertEquals("player51 wins!", game.playGame(deck));
     }
 }

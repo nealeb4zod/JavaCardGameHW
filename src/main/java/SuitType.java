@@ -1,9 +1,9 @@
 public enum SuitType {
 
-    HEARTS(3),
-    DIAMONDS(2),
-    CLUBS(1),
-    SPADES(4);
+    HEARTS(2),
+    DIAMONDS(3),
+    CLUBS(4),
+    SPADES(1);
 
     private final int rank;
 

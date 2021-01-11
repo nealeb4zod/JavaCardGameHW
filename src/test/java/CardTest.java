@@ -32,6 +32,6 @@ public class CardTest {
 
     @Test
     public void heartsHasRankOfThree(){
-        assertEquals(3, card.getSuitRankFromEnum());
+        assertEquals(2, card.getSuitRankFromEnum());
     }
 }
