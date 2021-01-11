@@ -3,39 +3,38 @@ import java.util.Collections;
 
 public class Deck {
 
-    private final ArrayList<Card> createdDeck;
+    private final ArrayList<Card> deck;
 
     public Deck() {
 
-        createdDeck = new ArrayList<Card>();
+        deck = new ArrayList<Card>();
         for (SuitType suit: SuitType.values()){
             for (RankType rank: RankType.values()) {
-                 Card generatedCard = new Card(suit, rank);
-                 createdDeck.add(generatedCard);
+                 Card card = new Card(suit, rank);
+                 deck.add(card);
             }
         }
     }
 
     public int getDeckSize(){
-        return createdDeck.size();
+        return deck.size();
     }
     
     public boolean isCardInDeck(Card card) {
-        return createdDeck.contains(card);
+        return deck.contains(card);
     }
     
     public Card getCardAtIndex(int index) {
-        return createdDeck.get(index);
+        return deck.get(index);
     }
 
-    public ArrayList<Card> shuffle() {
-        Collections.shuffle(createdDeck);
-        return createdDeck;
+    public void shuffle() {
+        Collections.shuffle(deck);
     }
 
-    public Card deal() {
-        Card dealtCard = createdDeck.get(0);
-        createdDeck.remove(dealtCard);
+    public Card dealACard() {
+        Card dealtCard = deck.get(0);
+        deck.remove(dealtCard);
         return dealtCard;
     }
 }

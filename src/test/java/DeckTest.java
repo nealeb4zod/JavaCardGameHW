@@ -39,13 +39,13 @@ public class DeckTest {
     public void checkDealReturnsCardAtIndexZero(){
         deck.shuffle();
         Card cardAtIndexZero = deck.getCardAtIndex(0);
-        assertEquals(cardAtIndexZero, deck.deal());
+        assertEquals(cardAtIndexZero, deck.dealACard());
     }
 
     @Test
     public void checkDealRemovesCardFromDeck(){
         deck.shuffle();
-        Card dealtCard = deck.deal();
+        Card dealtCard = deck.dealACard();
         assertFalse(deck.isCardInDeck(dealtCard));
     }
 }

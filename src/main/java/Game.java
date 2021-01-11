@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Game {
 
@@ -10,7 +9,7 @@ public class Game {
     }
 
     public void dealCardToPlayer(Player player, Deck deck) {
-        Card dealtCard = deck.deal();
+        Card dealtCard = deck.dealACard();
         player.addCardToHand(dealtCard);
     }
 
@@ -38,13 +37,14 @@ public class Game {
         return winningPlayer;
     }
 
-    public Player playGame(Deck deck) {
+    public String playGame(Deck deck) {
         if (getNoOfPlayers() > 52){
-            System.out.println("Too many players");
+            return "Too many players";
+        } else {
+            for (Player player: players){
+                dealCardToPlayer(player,deck);
+            }
+            return getWinner().getName() + " wins!";
         }
-        for (Player player: players){
-            dealCardToPlayer(player,deck);
-        }
-        return getWinner();
     }
 }

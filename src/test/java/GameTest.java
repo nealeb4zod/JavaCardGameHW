@@ -78,6 +78,28 @@ public class GameTest {
         game.addPlayerToGame(player3);
         game.addPlayerToGame(player4);
         // If we don't shuffle the deck, player4 always has the highest card.
-        assertEquals(player4, game.playGame(deck));
+        assertEquals("Tom wins!", game.playGame(deck));
+    }
+
+    @Test
+    public void tooManyPlayers() {
+        for (int i = 0; i < 53; i++) {
+            Player player;
+            String playerName = "player" + i;
+            player = new Player(playerName);
+            game.addPlayerToGame(player);
+        }
+        assertEquals("Too many players", game.playGame(deck));
+    }
+    @Test
+    public void useAllCards() {
+        for (int i = 0; i < 51; i++) {
+            Player player;
+            String playerName = "player" + i;
+            player = new Player(playerName);
+            game.addPlayerToGame(player);
+        }
+        // In an un-shuffled deck, player 38 always wins (Has king(highest rank) of clubs(highest suit))
+        assertEquals("player38", game.playGame(deck));
     }
 }
